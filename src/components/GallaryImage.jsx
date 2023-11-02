@@ -6,9 +6,8 @@ const GallaryImage = () => {
 
     const [images, setImages] = useState([]);
     const [select, setSelect] = useState([]);
-    
-    // const []
-    //data load
+
+    //data load from json file
     useEffect(() => {
         fetch('images.json')
             .then(response => response.json())
@@ -20,7 +19,7 @@ const GallaryImage = () => {
         console.log(id)
         
         if(select.includes(id)){
-            setSelect(select.filter(clickId =>clickId !==id ))
+            setSelect(select.filter(imageId =>imageId !==id ))
         }else{
             setSelect([...select, id])
         }
@@ -40,14 +39,22 @@ const GallaryImage = () => {
         
     }
 
+    //delete selected files
+    const deleteSelectedItems = () =>{
+        const updatedImages = images.filter( image => !select.includes(image));
+        setImages(updatedImages);
+        setSelect([]) //Clear the selected images after deletion
+    }
+
 
     return (
         <div >
-            <div>
+            <nav>
                 <Header
                     select = {select.length}
+                    deleteSelectedItems = {deleteSelectedItems}
                 ></Header>
-            </div>
+            </nav>
             <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-flow-row gap-4'>
                 {
                     images.map((image, index) => <Images
