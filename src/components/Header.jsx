@@ -1,10 +1,10 @@
 
 
-const Header = () => {
+const Header = ({select}) => {
     return (
         <div>
             <div>
-                <p>gallary</p>
+                <p>{select}gallary</p>
             </div>
         </div>
     );

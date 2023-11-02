@@ -10,7 +10,6 @@ function App() {
 
   return (
     <>
-      <Header></Header>
       <GallaryImage></GallaryImage>
     </>
   )
