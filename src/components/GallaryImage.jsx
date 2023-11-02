@@ -22,40 +22,26 @@ const GallaryImage = () => {
             setSelect(select.filter(imageId =>imageId !==id ))
         }else{
             setSelect([...select, id])
-        }
-        // const selectItems = images.find(selectItem => selectItem.id === id);
-        // if(!selectItems.state){
-        //     // console.log(selectItems.state);
-        //     selectItems.state = true;
-        //     console.log(selectItems.state)
-        // }else if (selectItems.state){
-        //     selectItems.state = false;
-        //     console.log(selectItems.state)
-        // }
-
-        // // const getSelectItems = images.filter(selectItem => console.log(selectItem.state) );
-        // const getSelectItems = images.filter(selectItem => selectItem.state === true);
-        // setSelect(getSelectItems.length);
-        
-    }
+        }  
+    };
 
     //delete selected files
     const deleteSelectedItems = () =>{
-        const updatedImages = images.filter( image => !select.includes(image));
+        const updatedImages = images.filter( image => !select.includes(image.id));
         setImages(updatedImages);
         setSelect([]) //Clear the selected images after deletion
     }
 
 
     return (
-        <div >
+        <div className="m-5 bg-white rounded-xl">
             <nav>
                 <Header
-                    select = {select.length}
+                    selectedFiles = {select.length}
                     deleteSelectedItems = {deleteSelectedItems}
                 ></Header>
             </nav>
-            <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-flow-row gap-4'>
+            <div className=' px-12 py-9 grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-flow-row gap-8'>
                 {
                     images.map((image, index) => <Images
                         key={image.id}
