@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Images from "./Images";
 import Header from "./Header";
 import toast, { Toaster } from 'react-hot-toast';
+import { DragDropContext } from "react-beautiful-dnd";
 
 const GallaryImage = () => {
 
@@ -30,10 +31,22 @@ const GallaryImage = () => {
     const deleteSelectedItems = () => {
         const updatedImages = images.filter(image => !select.includes(image.id));
         setImages(updatedImages);
-        setSelect([]) //Clear the selected images after deletion
+        setSelect([]); //Clear the selected images after deletion
         toast.success(`${select.length} Files Deleted successfully!`);
     }
-    
+
+    // swapping algorithm
+    const handleSwapping = (result) => {
+        // console.log('this is result', result);
+        const { source, destination } = result;
+        const cloneImage = [...images];
+        const stored = cloneImage[source.index];
+        cloneImage[source.index] = cloneImage[destination.index];
+        cloneImage[destination.index] = stored;
+        setImages(cloneImage);
+        // console.log(cloneImage);
+    }
+
     return (
         <div className="m-5 bg-white rounded-xl">
             {/* header section */}
@@ -45,23 +58,22 @@ const GallaryImage = () => {
             </nav>
 
             {/* image gallery section */}
-            <div className=' px-12 py-9 grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-flow-row gap-8'
+            <DragDropContext onDragEnd={handleSwapping}>
+                <div className=' px-12 py-9 grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-flow-row gap-8'>
+                    {
+                        images.map((image, index) => <Images
+                            key={image.id}
+                            id={image.id}
+                            image={image.image}
+                            index={index}
+                            isChecked={select.includes(image.id)}
+                            handleSelect={handleSelect}
+                        ></Images>
+                        )
+                    }
+                </div>
+            </DragDropContext>
 
-            >
-                {
-                    images.map((image, index) => <Images
-                        key={image.id}
-                        id={image.id}
-                        image={image.image}
-                        index={index}
-                        isChecked={select.includes(image.id)}
-                        handleSelect={handleSelect}
-                        images = {images}
-                        setImages = {setImages}
-                    ></Images>
-                    )
-                }
-            </div>
 
             <Toaster //when delete image it show a notifiction
                 //toster style
