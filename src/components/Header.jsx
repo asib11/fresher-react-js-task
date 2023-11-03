@@ -6,7 +6,7 @@ const Header = ({ selectedFiles, deleteSelectedItems }) => {
             <div className='mb-4 px-12 pt-5'>
             {
                 selectedFiles === 0 ?
-                    <h1 className='text-3xl font-bold'>Gallery</h1>
+                    <h1 className='text-2xl font-bold'>Gallery</h1>
                     :
                     <div className='flex justify-between'>
                         <div>
@@ -15,7 +15,7 @@ const Header = ({ selectedFiles, deleteSelectedItems }) => {
                                 {selectedFiles} Files Selected</h1>
                         </div>
                         <div>
-                            <button className='font-bold text-xl text-red-600 hover:underline' onClick={deleteSelectedItems}>Delete Files</button>
+                            <button className='font-bold text-xl text-red-500 hover:underline' onClick={deleteSelectedItems}>Delete Files</button>
                         </div>
                     </div>
             }
