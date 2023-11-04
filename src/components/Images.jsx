@@ -30,7 +30,7 @@ const Images = ({ index, id, image, isChecked, handleSelect }) => {
 
                                     >
                                         <div className='image'>
-                                            <img className='rounded-xl border-2 border-gray-300 hover:opacity-40' src={image} alt="" />
+                                            <img className={`rounded-xl border-2 border-gray-300  ${isChecked === true? 'opacity-50': 'hover:opacity-40'}`} src={image} alt="" />
                                         </div>
                                         <div>
                                             <input onChange={() => handleSelect(id)} checked={isChecked} type="checkbox" name="" id="checkbox" className={`m-5 h-5 w-5 hidden absolute top-0`} />
