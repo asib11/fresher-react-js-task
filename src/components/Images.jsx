@@ -26,14 +26,14 @@ const Images = ({ index, id, image, isChecked, handleSelect }) => {
                                         {...provided.draggableProps}
                                         {...provided.dragHandleProps}
                                         ref={provided.innerRef}
-                                        className='inline-block image-container'
+                                        className='inline-block image-container  rounded-xl hover:bg-slate-600 '
 
                                     >
-                                        <div>
-                                            <img className='rounded-xl border-2 border-gray-300 hover:opacity-50 hover:bg-black' src={image} alt="" />
+                                        <div className='image'>
+                                            <img className='rounded-xl border-2 border-gray-300 hover:opacity-40' src={image} alt="" />
                                         </div>
                                         <div>
-                                            <input onChange={() => handleSelect(id)} checked={isChecked} type="checkbox" name="" id="checkbox" className={`m-5 h-5 w-5 hidden absolute top-0 ${isChecked === true && 'inline-block'}`} />
+                                            <input onChange={() => handleSelect(id)} checked={isChecked} type="checkbox" name="" id="checkbox" className={`m-5 h-5 w-5 hidden absolute top-0`} />
                                         </div>
 
                                     </div>
