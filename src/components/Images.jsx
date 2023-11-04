@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'
-import { useState } from 'react';
+import './Images.css'
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 
 
 const Images = ({ index, id, image, isChecked, handleSelect }) => {
-   
+
 
     // Manage visibility of checkbox
-    
+
 
     return (
         <Droppable droppableId={index.toString()}>
@@ -18,21 +18,24 @@ const Images = ({ index, id, image, isChecked, handleSelect }) => {
                         ref={provided.innerRef}
                         className={`relative flex ${index === 0 ? 'col-span-2 row-span-2' : 'col-span-1 row-span-1'} `}
                     >
-                        {
-                           <input onChange={() => handleSelect(id)} checked={isChecked} type="checkbox" name="" id="" className={`absolute  m-5 h-5 w-5`} />
-                        }
-                            
-                        
 
                         <Draggable key={id} draggableId={id.toString()} index={index}>
                             {
-                                drag => (
+                                provided => (
                                     <div
-                                        {...drag.draggableProps}
-                                        {...drag.dragHandleProps}
-                                        ref={drag.innerRef}
+                                        {...provided.draggableProps}
+                                        {...provided.dragHandleProps}
+                                        ref={provided.innerRef}
+                                        className='inline-block image-container'
+
                                     >
-                                        <img className='rounded-xl border-2 border-gray-300' src={image} alt=""/>
+                                        <div>
+                                            <img className='rounded-xl border-2 border-gray-300 hover:opacity-50 hover:bg-black' src={image} alt="" />
+                                        </div>
+                                        <div>
+                                            <input onChange={() => handleSelect(id)} checked={isChecked} type="checkbox" name="" id="checkbox" className={`m-5 h-5 w-5 hidden absolute top-0 ${isChecked === true && 'inline-block'}`} />
+                                        </div>
+
                                     </div>
                                 )
                             }

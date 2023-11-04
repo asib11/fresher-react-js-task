@@ -32,7 +32,7 @@ const GallaryImage = () => {
         const updatedImages = images.filter(image => !select.includes(image.id));
         setImages(updatedImages);
         setSelect([]); //Clear the selected images after deletion
-        toast.success(`${select.length} Files Deleted successfully!`);
+        toast.success(`${select.length} Files Deleted Successfully!`);
     }
 
     // swapping algorithm
@@ -43,8 +43,8 @@ const GallaryImage = () => {
         const stored = cloneImage[source.index];
         cloneImage[source.index] = cloneImage[destination.index];
         cloneImage[destination.index] = stored;
-        setImages(cloneImage);
         // console.log(cloneImage);
+        setImages(cloneImage);
     }
 
     return (
@@ -59,7 +59,7 @@ const GallaryImage = () => {
 
             {/* image gallery section */}
             <DragDropContext onDragEnd={handleSwapping}>
-                <div className=' px-12 py-9 grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-flow-row gap-8'>
+                <div className=' px-12 py-9 grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-flow-row gap-8 relative'>
                     {
                         images.map((image, index) => <Images
                             key={image.id}
@@ -71,6 +71,7 @@ const GallaryImage = () => {
                         ></Images>
                         )
                     }
+                    <div className='col-span-1 row-span-1 w-100 flex h-100 rounded-xl border-2 border-gray-300'>add image</div>
                 </div>
             </DragDropContext>
 
