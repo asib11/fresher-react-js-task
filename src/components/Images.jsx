@@ -4,11 +4,7 @@ import { Draggable, Droppable } from 'react-beautiful-dnd';
 
 
 const Images = ({ index, id, image, isChecked, handleSelect }) => {
-
-
-    // Manage visibility of checkbox
-
-
+    
     return (
         <Droppable droppableId={index.toString()}>
             {

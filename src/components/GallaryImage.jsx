@@ -35,15 +35,13 @@ const GallaryImage = () => {
         toast.success(`${select.length} Files Deleted Successfully!`);
     }
 
-    // swapping algorithm
-    const handleSwapping = (result) => {
-        // console.log('this is result', result);
+    // image sort algorithm for drag and drop
+    const handleSortIamge = (result) => {
         const { source, destination } = result;
         const cloneImage = [...images];
         const stored = cloneImage[source.index];
         cloneImage[source.index] = cloneImage[destination.index];
         cloneImage[destination.index] = stored;
-        // console.log(cloneImage);
         setImages(cloneImage);
     }
 
@@ -58,7 +56,7 @@ const GallaryImage = () => {
             </nav>
 
             {/* image gallery section */}
-            <DragDropContext onDragEnd={handleSwapping}>
+            <DragDropContext onDragEnd={handleSortIamge}>
                 <div className=' px-12 py-9 grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-flow-row gap-8 relative'>
                     {
                         images.map((image, index) => <Images
@@ -71,7 +69,7 @@ const GallaryImage = () => {
                         ></Images>
                         )
                     }
-                    <div className='col-span-1 row-span-1 w-100 flex h-100 rounded-xl border-2 border-gray-300'>add image</div>
+                    <div  className='col-span-1 row-span-1 w-100 max-lg:h-[251.4px] max-md:h-[202.4px] flex rounded-xl border-dashed border-4 border-gray-300 max-sm:hidden justify-center items-center '><button>Add Images</button></div>
                 </div>
             </DragDropContext>
 
