@@ -72,7 +72,7 @@ const GallaryImage = () => {
                     }
 
                     {/* add image design */}
-                    <div className='col-span-1 row-span-1 w-100 max-lg:h-[251.4px] max-md:h-[202.4px] flex flex-col rounded-xl border-dashed border-4 border-gray-300 max-sm:hidden justify-center items-center'
+                    <div className='col-span-1 row-span-1 w-100 lg:h-[251.4px] max-md:h-[202.4px] flex flex-col rounded-xl border-dashed border-4 border-gray-300 max-sm:hidden justify-center items-center'
                     ><PhotoIcon className="h-6 w-6 text-black" />
                         <button >
                             Add Images
