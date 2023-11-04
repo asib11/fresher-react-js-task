@@ -15,7 +15,7 @@
     "./src/**/*.{js,ts,jsx,tsx}",
     ],
 #### Add the Tailwind directives to your CSS
-Add the @tailwind directives for each of Tailwind’s layers to your ./src/index.css file.
+##### Add the @tailwind directives for each of Tailwind’s layers to your ./src/index.css file.
     @tailwind base;
     @tailwind components;
     @tailwind utilities;
