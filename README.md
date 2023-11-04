@@ -2,7 +2,7 @@
 
 ## React vite is used as template
 ## Tailwind is used as CSS
-    - sometimes used valina css in this project
+ sometimes used valina css in this project
 ## A separate component is created for header, gallery, images
 
 ### Header
