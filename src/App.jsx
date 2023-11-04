@@ -1,5 +1,5 @@
 
-import GallaryImage from './components/GallaryImage'
+import GallaryImage from './components/GalleryImage'
 
 
 function App() {

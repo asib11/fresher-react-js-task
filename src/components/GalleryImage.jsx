@@ -3,7 +3,7 @@ import Images from "./Images";
 import Header from "./Header";
 import toast, { Toaster } from 'react-hot-toast';
 import { DragDropContext } from "react-beautiful-dnd";
-import { BeakerIcon, PhotoIcon } from '@heroicons/react/24/solid'
+import { PhotoIcon } from '@heroicons/react/24/solid'
 
 const GallaryImage = () => {
 
@@ -72,8 +72,8 @@ const GallaryImage = () => {
                     }
 
                     {/* add image design */}
-                    <div className='col-span-1 row-span-1 w-100 lg:h-[251.4px] max-md:h-[202.4px] flex flex-col rounded-xl border-dashed border-4 border-gray-300 max-sm:hidden justify-center items-center'
-                    ><PhotoIcon className="h-6 w-6 text-black" />
+                    <div className='col-span-1 row-span-1 w-100 lg:h-[251.4px] max-md:h-[202.4px] flex flex-col rounded-xl border-dashed border-4 border-gray-300 max-sm:hidden justify-center items-center bg-slate-100'
+                    ><PhotoIcon className="h-6 w-6 text-black " />
                         <button >
                             Add Images
                         </button>
