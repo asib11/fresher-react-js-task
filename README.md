@@ -1,4 +1,4 @@
-# Documentation of React JS Developer Task Assignment at Ollyo
+# Documentation of React JS Developer Task
 
 ## React vite is used as template
     npm create vite@latest name-of-your-project -- --template react
